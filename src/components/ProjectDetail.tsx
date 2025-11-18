@@ -1,5 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import * as React from "react";
 import { ArrowLeft } from "lucide-react";
 import astro from "../assets/astro.png";
 import battery from "../assets/battery.jpg";
@@ -12,9 +13,12 @@ import leveld from "../assets/eleveldesign.png";
 import enemy from "../assets/eenemy.png";
 import level from "../assets/elevel.png";
 import asset from "../assets/easset.png";
+import bempathy from "../assets/bempathymap.png";
+import bjourney from "../assets/bjourney.png";
+import bmock from "../assets/bmock.png";
 
 interface ProjectSection {
-  type: "text" | "image" | "two-column" | "full-width-image" | "color-palette" | "two-images" | "three-images" | "youtube";
+  type: "text" | "image" | "two-column" | "full-width-image" | "color-palette" | "two-images" | "three-images" | "youtube" | "node";
   heading?: string;
   content?: string;
   image?: string;
@@ -23,6 +27,7 @@ interface ProjectSection {
   colors?: Array<{ name: string; hex: string }>;
   images?: string[];
   youtubeLink?: string;
+  node?: React.Node;
 }
 
 interface ProjectData {
@@ -55,11 +60,24 @@ const projectsData: Record<string, ProjectData> = {
     description: "AI-powered battery management solution combining UX research and product strategy to optimize device performance and extend battery life through intelligent monitoring.",
     heroImage: battery,
     brief: "Battery Guardian emerged from research into how users interact with battery-dependent devices. The project focuses on creating an intelligent system that learns user behavior patterns to optimize battery performance while maintaining seamless user experience.",
-    briefHeading: "Project Brief",
-    services: ["UX Research", "Product Strategy", "UI/UX Design"],
+    briefHeading: "Utilizing AI to Rapidly Validate a Trust-Based Utility App",
+    services: ["Product Strategy & PM", "UX Research", "UI/UX Design"],
     duration: "6 months",
     briefYoutube: "https://www.youtube.com/embed/-byvBWg8trs?si=JnX1QeHhYUVOLFdj",
     sections: [
+      {
+        type: "text",
+        heading: "Why Do Battery Apps Fail?",
+        content: `Traditional battery apps focus on data (cleaning RAM, showing graphs). My initial research suggested the real user problem wasn't technical efficiency, but psychological anxiety. Users didn't trust the "black box" of their phone's OS. Users don't need a tool to manage their battery; they need a trusted agent to give them certainty.Instead of building a "cleaner," I set out to design an "AI Guardian" that trades data privacy for predictive certainty..`
+      },
+      {
+        type: "image",
+        image: bempathy,
+      },
+      {
+        type: "text",
+        content: `I used AI to synthesize initial market signals into a "Wanted Poster" empathy map. This helped me quickly identify the "Anxious Pragmatist" persona—someone who feels burdened by their phone, not empowered by it. We assumed users would trade sensitive data (Calendar access) for battery certainty. This was the high-risk assumption that defined the MVP.`
+      },
       {
         type: "color-palette",
         heading: "Brand Colors",
@@ -72,39 +90,43 @@ const projectsData: Record<string, ProjectData> = {
         ]
       },
       {
-        type: "two-column",
-        heading: "Research & Discovery",
-        leftContent: "We conducted extensive user interviews with 50+ participants across different age groups and device usage patterns. This research revealed that users wanted transparency without complexity.",
-        rightContent: "The findings shaped our design philosophy: provide intelligent recommendations that users can act on immediately, while hiding the complex algorithms working behind the scenes."
-      },
-      {
-        type: "two-images",
-        heading: "Mobile Interface",
-        images: [
-          "https://images.unsplash.com/photo-1640694514279-090bb1b09ee9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkYXNoYm9hcmR8ZW58MXx8fHwxNzYzMzc2MjQxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-          "https://images.unsplash.com/photo-1614857439116-67b6791609a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaG9uZSUyMGNoYXJnaW5nJTIwc3RhdGlvbnxlbnwxfHx8fDE3NjM0MjIyOTZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-        ]
+        type: 'node',
+        node: <div>
+          To move beyond assumptions, I conducted moderated usability testing with 7 participants representing the "Anxious Pragmatist" persona. Instead of standard interviews, I utilized the Think-Aloud Protocol, a cognitive research method where users verbalize their thought process in real-time while attempting specific tasks. This method is critical for uncovering the why behind user errors, not just the what.
+          Key Findings from Testing:
+          <ul>
+            <li>• One participant  explicitly stated he "wouldn't trust a random app" with system-level permissions, only a "system app." This invalidated my initial assumption that utility alone would drive adoption.</li>
+            <li>• Another participant  noted that the word "prediction" made her think of inaccurate weather forecasts, actually decreasing her trust in the AI.</li>
+            <li>• My initial "Critically Low" warning UI caused confusion (users didn't know if it meant "now" or "later"), proving that ambiguity increases anxiety—the exact opposite of my product goal.</li>
+          </ul>
+          The Strategic Pivot: Based on this data, I pivoted the core strategy from "Utility-First" to "Relationship-First." I realized the app couldn't just be smart; it had to earn the right to be smart. This led to the creation of "Joule," the AI character designed specifically to bridge the trust gap identified in testing.
+        </div>
       },
       {
         type: "image",
-        heading: "Data Visualization",
-        content: "The dashboard presents critical battery information at a glance, with progressive disclosure for users who want deeper insights. Every element serves a purpose in helping users make informed decisions about their device usage.",
-        image: "https://images.unsplash.com/photo-1759661966728-4a02e3c6ed91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXRhJTIwdmlzdWFsaXphdGlvbiUyMGRhc2hib2FyZHxlbnwxfHx8fDE3NjM0MDcyNTV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+        image: bjourney,
+      },
+      {
+        type: "node",
+        node: <div>
+          With a validated problem but limited resources, I needed to define a Minimum Viable Product (MVP) that delivered maximum value. I applied the MoSCoW Prioritization Framework (Must have, Should have, Could have, Won't have) to ruthlessly scope the project.
+          <ul>
+            <li>• Won't Have: I explicitly deferred "Community Features" and "Detailed Historical Graphs." While visually appealing, my research showed they did not solve the immediate "anxiety" problem and would delay launch.</li>
+            <li>• Must Have: My testing revealed a critical insight: 3 out of 4 users did not use their phone's calendar. My original design relied 100% on calendar data, meaning the app would be broken for 75% of users.</li>
+            <li>• The Decision: I elevated the "Manual Add Event" feature from a "nice-to-have" to a critical "Must Have" requirement. This feature allows non-calendar users to input context (e.g., "Unexpected Meeting") in seconds, ensuring the "Battery Forecast" works for everyone, not just power users. This decision directly expanded the app's Total Addressable Market.</li>
+          </ul>
+        </div>
       },
       {
         type: "full-width-image",
-        image: "https://images.unsplash.com/photo-1564424555153-04228f0aa7ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjB3aXJlZnJhbWV8ZW58MXx8fHwxNzYzNDIwMjE3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-      },
-      {
-        type: "text",
-        heading: "Impact & Results",
-        content: "Early testing showed a 35% improvement in user battery awareness and a 20% reduction in unnecessary battery anxiety. Users reported feeling more in control of their device experience while spending less time worrying about battery life."
+        image: bmock,
       },
       {
         type: "text",
         heading: "Reflections",
-        content: "Your reflections content goes here."
-      }
+        content: `By validating the "Trust Barrier" early, I avoided building a product no one would install. The final design focuses 80% of its effort on the first 5 minutes of usage (Onboarding & Activation) because retention depends entirely on that initial trust. AI didn't replace the rigorous process; it accelerated it. It allowed me to simulate the "Strategyzer" business model canvas and iterate on the PRD in hours, not weeks, giving me more time to focus on the human insights from user testing.`
+      },
+
     ],
     tags: ["AI", "UX Research", "Product Strategy", "Mobile Design"]
   },
@@ -389,6 +411,16 @@ export function ProjectDetail() {
                   />
                 </div>
               </div>
+            </div>
+          );
+        }
+
+        if (section.type === "node" && section.node) {
+          return (
+
+
+            <div key={index} className="max-w-4xl mx-auto px-6 py-20 text-xl text-zinc-400 leading-relaxed">
+              {section.node}
             </div>
           );
         }
