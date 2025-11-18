@@ -42,47 +42,6 @@ export function About() {
             </div>
           </div>
         </div>
-
-        {/* Contact Section */}
-        <div className="pt-20 border-t border-zinc-800">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-5xl mb-6">
-              Let's Work Together
-            </h2>
-            <p className="text-xl text-zinc-400 mb-8">
-              Ready to start your next project? Get in touch and let's make something great.
-            </p>
-            <div className="flex flex-col gap-4 mb-8">
-              <a
-                href="mailto:hello@example.com"
-                className="flex items-center gap-3 text-zinc-400 hover:text-white transition-colors"
-              >
-                <Mail className="w-5 h-5" />
-                hello@example.com
-              </a>
-            </div>
-            <div className="flex gap-4">
-              <a
-                href="#"
-                className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 transition-all shadow-lg"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 transition-all shadow-lg"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 transition-all shadow-lg"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

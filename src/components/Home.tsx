@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+import home from "../assets/home.JPG";
 
 export function Home() {
   return (
@@ -21,17 +23,14 @@ export function Home() {
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
-
-        {/* Featured Work Preview */}
-        <div className="mt-32 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="aspect-[4/3] bg-zinc-900 rounded-2xl overflow-hidden group cursor-pointer">
-            <div className="w-full h-full bg-gradient-to-br from-purple-900/30 to-blue-900/30 flex items-center justify-center">
-              <span className="text-zinc-500 group-hover:text-white transition-colors">Featured Project 01</span>
-            </div>
-          </div>
-          <div className="aspect-[4/3] bg-zinc-900 rounded-2xl overflow-hidden group cursor-pointer">
-            <div className="w-full h-full bg-gradient-to-br from-orange-900/30 to-pink-900/30 flex items-center justify-center">
-              <span className="text-zinc-500 group-hover:text-white transition-colors">Featured Project 02</span>
+        <div className="py-20">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="aspect-[16/9] bg-zinc-900 rounded-2xl overflow-hidden">
+              <ImageWithFallback
+                src={home}
+                alt={`decorative img`}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>

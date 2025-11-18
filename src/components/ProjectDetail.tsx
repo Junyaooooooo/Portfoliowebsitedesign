@@ -2,6 +2,16 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ArrowLeft } from "lucide-react";
 import astro from "../assets/astro.png";
+import battery from "../assets/battery.jpg";
+import apersona1 from "../assets/astro-persona1.png";
+import apersona2 from "../assets/astro-persona2.png";
+import alowfi from "../assets/alowfi.png";
+import ahifi from "../assets/ahifi.png";
+import sketch from "../assets/esketch.png";
+import leveld from "../assets/eleveldesign.png";
+import enemy from "../assets/eenemy.png";
+import level from "../assets/elevel.png";
+import asset from "../assets/easset.png";
 
 interface ProjectSection {
   type: "text" | "image" | "two-column" | "full-width-image" | "color-palette" | "two-images" | "three-images" | "youtube";
@@ -30,7 +40,6 @@ interface ProjectData {
   briefYoutube?: string;
   services: string[];
   duration: string;
-  overview: string;
   sections: ProjectSection[];
   tags: string[];
 }
@@ -44,23 +53,22 @@ const projectsData: Record<string, ProjectData> = {
     year: "2025",
     role: "UX Researcher, Product Designer",
     description: "AI-powered battery management solution combining UX research and product strategy to optimize device performance and extend battery life through intelligent monitoring.",
-    heroImage: "https://images.unsplash.com/photo-1604474834292-8f0276a2065f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXR0ZXJ5JTIwY2hhcmdpbmclMjBhcHAlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzYzNDEwNjcwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    heroImage: battery,
     brief: "Battery Guardian emerged from research into how users interact with battery-dependent devices. The project focuses on creating an intelligent system that learns user behavior patterns to optimize battery performance while maintaining seamless user experience.",
     briefHeading: "Project Brief",
     services: ["UX Research", "Product Strategy", "UI/UX Design"],
     duration: "6 months",
-    overview: "Battery Guardian emerged from research into how users interact with battery-dependent devices. The project focuses on creating an intelligent system that learns user behavior patterns to optimize battery performance while maintaining seamless user experience.",
     briefYoutube: "https://www.youtube.com/embed/-byvBWg8trs?si=JnX1QeHhYUVOLFdj",
     sections: [
       {
         type: "color-palette",
         heading: "Brand Colors",
         colors: [
-          { name: "Primary Green", hex: "#B5CAA1" },
-          { name: "Dark Background", hex: "#18181B" },
-          { name: "Energy Yellow", hex: "#FCD34D" },
-          { name: "Alert Red", hex: "#EF4444" },
-          { name: "Cool Blue", hex: "#3B82F6" }
+          { name: "Primary Green", hex: "#05C161" },
+          { name: "Primary Background Color", hex: "#191919" },
+          { name: "Secondary Background Color", hex: "#2A2A29" },
+          { name: "Secondary Text Color", hex: "#949494" },
+          { name: "Primary Text Color", hex: "#E9E9E9" }
         ]
       },
       {
@@ -113,7 +121,6 @@ const projectsData: Record<string, ProjectData> = {
     briefHeading: "Re-thinking Personal Finance with Gamification",
     services: ["Product Thinking", "UI/UX Design", "Game Design"],
     duration: "8 months",
-    overview: "Astrogrow reimagines the farming simulation genre by setting it in the vast expanse of space. Players cultivate exotic alien flora while managing resources in zero-gravity environments, creating a unique blend of relaxation and strategic gameplay.",
     briefYoutube: "https://www.youtube.com/embed/Ur7jrxwvyvQ?si=TH2sauU0376VqTNd",
     sections: [
       {
@@ -123,32 +130,30 @@ const projectsData: Record<string, ProjectData> = {
       },
       {
         type: "two-column",
-        heading: "Game Mechanics",
-        leftContent: "The core loop centers around planting, nurturing, and harvesting alien plants. Each species has unique requirements based on real botanical principles adapted for space environments.",
-        rightContent: "Players unlock new plant varieties, terraforming tools, and space stations as they progress. The progression system rewards both patience and strategic planning."
+        heading: "Research",
+        leftContent: "To understand the landscape, I analyzed mainstream apps (like Mint and IA). The market is crowded with products that focus mainly on functionality (tracking and reporting), but there’s a major gap when it comes to emotional design and motivation. I also researched the quest system from Stardew Valley to learn how to set up quests for goals of different scales and how to motivate users to keep engaging with the product.",
+        rightContent: "From user interviews, I gathered two key insights. Users feel overwhelmed by the idea of budgeting and see it as a punishment. They are highly motivated by instant feedback and a visual sense of achievement.Players unlock new plant varieties, terraforming tools, and space stations as they progress. The progression system rewards both patience and strategic planning."
       },
       {
-        type: "three-images",
+        type: "two-images",
+        heading: "user research",
         images: [
-          "https://images.unsplash.com/photo-1588330516410-612455ecbab7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwbGFudCUyMGdyb3d0aCUyMHRpbWVsYXBzZXxlbnwxfHx8fDE3NjM0MjIyOTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-          "https://images.unsplash.com/photo-1633987033079-a09df8c1c349?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGFjZXNoaXAlMjBpbnRlcmlvcnxlbnwxfHx8fDE3NjM0MjIyOTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-          "https://images.unsplash.com/photo-1751097006268-ae4601fcb117?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwZmFybWluZ3xlbnwxfHx8fDE3NjM0MjIyOTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+          apersona1,
+          apersona2,
         ]
       },
       {
         type: "text",
-        heading: "Visual Design Philosophy",
-        content: "The art style combines the wonder of space exploration with the warmth of nature. Bioluminescent plants cast ethereal glows in space stations, creating a sense of life thriving against the cosmic void. Every UI element reinforces the theme of nurturing growth in an alien environment."
-      },
-      {
-        type: "image",
-        heading: "User Experience",
-        content: "The interface fades into the background, letting players focus on their gardens. Intuitive gestures and clear feedback systems ensure that even complex actions feel natural and rewarding.",
-        image: "https://images.unsplash.com/photo-1586418328152-c61f282202c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnYW1lJTIwaW50ZXJmYWNlJTIwZGVzaWdufGVufDF8fHx8MTc2MzM2NTI0OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+        heading: "Key Features",
+        content: `I designed key features to support this game loop.Instead of "Budget Categories," users get "Quests," like "Collect $50 in Fuel for the Coffee Mission." This reframes budgeting as an active, achievable challenge. A visual progression map (like in a game) that shows users all the planets" they’ve discovered (goals they've completed). This provides a long-term sense of achievement. This was the biggest design challenge. Through user testing, I learned that while the app is a game, users must always feel their money is serious and safe. So I balanced playful illustrations and game elements with a clean, professional, and trustworthy UI for all financial transaction screens. The "game" motivates, but the "bank" feels secure..`
       },
       {
         type: "full-width-image",
-        image: "https://images.unsplash.com/photo-1493859822928-d0ba2b85c80d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGFjZSUyMHN0YXRpb24lMjB3aW5kb3d8ZW58MXx8fHwxNzYzNDIyMjk4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+        image: alowfi,
+      },
+      {
+        type: "full-width-image",
+        image: ahifi,
       },
       {
         type: "text",
@@ -171,47 +176,38 @@ const projectsData: Record<string, ProjectData> = {
     briefHeading: "A Hybrid Narrative Experience Combining Platformer & Escape Room Mechanics",
     services: ["Game Art", "Game Design", "Level Design"],
     duration: "10 months",
-    overview: "Event Horizon is a contemplative exploration game set in the darkest reaches of space. Players navigate through mysterious cosmic phenomena, uncovering fragments of stories left behind by previous explorers while confronting the sublime terror of the infinite.",
     briefYoutube: "https://www.youtube.com/embed/UE8WOZ8jAWQ?si=sY15Amc4B3lALU0g",
     sections: [
       {
-        type: "color-palette",
-        heading: "Atmospheric Palette",
-        colors: [
-          { name: "Void Black", hex: "#09090B" },
-          { name: "Nebula Blue", hex: "#3B82F6" },
-          { name: "Warning Orange", hex: "#F97316" },
-          { name: "Sage Accent", hex: "#B5CAA1" },
-          { name: "Ghost White", hex: "#FAFAFA" }
-        ]
-      },
-      {
-        type: "text",
-        heading: "Level Design Philosophy",
-        content: "Each area is designed to evoke specific emotions through scale, lighting, and spatial relationships. Dead space stations tell silent stories. Nebulae hide both beauty and danger. Black holes warp perception itself. The levels are characters in their own right."
-      },
-      {
-        type: "two-images",
-        images: [
-          "https://images.unsplash.com/photo-1684439115738-696741fffcff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwY29ycmlkb3IlMjBhdG1vc3BoZXJpY3xlbnwxfHx8fDE3NjM0MjIyOTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-          "https://images.unsplash.com/photo-1520034475321-cbe63696469a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnYWxheHklMjBzdGFyc3xlbnwxfHx8fDE3NjMzNjgzMDJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-        ]
-      },
-      {
-        type: "two-column",
-        heading: "Atmospheric Design",
-        leftContent: "Sound design plays a crucial role in creating tension and wonder. The hum of your ship's engines becomes a companion. Radio static might be interference or messages from the past.",
-        rightContent: "Visual design uses darkness and limited light sources to create both claustrophobia and agoraphobia. Players must choose between safety in shadows or exposure in light."
-      },
-      {
-        type: "full-width-image",
-        image: "https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHRlY2hub2xvZ3l8ZW58MXx8fHwxNzYzMzA2OTQzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+        type: "image",
+        image: sketch,
       },
       {
         type: "image",
-        heading: "Narrative Through Space",
-        content: "The story unfolds through exploration rather than exposition. Environmental clues, audio logs, and visual storytelling reveal the fate of those who came before, while raising questions about your own journey.",
-        image: "https://images.unsplash.com/photo-1587522384446-64daf3e2689a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwd29ya3NwYWNlfGVufDF8fHx8MTc2MzQwMTA4Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+        image: enemy,
+      },
+      {
+        type: "text",
+        heading: "Key Mechanics",
+        content: `I noticed that in many games, players don’t have the patience to read long text—they often skip the story entirely. And during play testing, unskippable or overly long dialogue systems quickly become frustrating. To solve this, I designed an Audio Log system. To encourage players to actually interact with the story, I built in several motivations. Audio Logs aren’t just lore—they act like mini ‘treasure chests’ that contain key puzzle tips or useful items. They become a meaningful short-term optimization goal that players actively seek out. Players can skip or listen, and view the transcript anytime—giving them full control between ‘immersion’ and ‘efficiency.’`,
+      },
+      {
+        type: "image",
+        image: leveld,
+      },
+      {
+        type: "text",
+        content: `I was unhappy with the first version of our level design. It felt unbalanced—too much like a pure platformer, and missing the escape-room-style puzzles that push the story forward. Most puzzles were repetitive: ‘find a key, open a door.’ So I led a full redesign of the levels. My strategy was to let narrative structure drive gameplay flow. I divided the story into six stages and placed Audio Logs in specific rooms as narrative clues. Players progress through environmental storytelling—from early optimism to emerging side effects.`,
+      },
+      {
+        type: "image",
+        image: level,
+      },
+      {
+        type: "image",
+        heading: "Game Art",
+        content: "I realized that frame-by-frame animation would be too time-consuming. So I separated the character’s limbs, making it easier to animate smoothly in After Effects using rig-based techniques.I also tried using a unified watercolor style to create a damp, abandoned, and shadowy atmosphere.",
+        image: asset,
       },
       {
         type: "text",
@@ -367,7 +363,7 @@ export function ProjectDetail() {
                 <ImageWithFallback
                   src={project.briefSectionImage}
                   alt={`${project.title} brief section`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
             </div>
@@ -375,14 +371,6 @@ export function ProjectDetail() {
 
 
         </div>
-      </div>
-
-      {/* Overview Section */}
-      <div className="max-w-4xl mx-auto px-6 py-20">
-        <h2 className="text-3xl md:text-4xl mb-6">Overview</h2>
-        <p className="text-xl text-zinc-400 leading-relaxed">
-          {project.overview}
-        </p>
       </div>
 
 
@@ -473,7 +461,7 @@ export function ProjectDetail() {
                   <ImageWithFallback
                     src={section.image}
                     alt={section.heading || `${project.title} section ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               )}

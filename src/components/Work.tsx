@@ -1,6 +1,7 @@
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import battery from "../assets/battery.jpg";
 
 const projects = [
   {
@@ -9,7 +10,7 @@ const projects = [
     title: "Battery Guardian",
     category: "Branding & UX Design",
     description: "AI-powered battery management solution combining UX research and product strategy to optimize device performance and extend battery life through intelligent monitoring.",
-    image: "https://images.unsplash.com/photo-1604474834292-8f0276a2065f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXR0ZXJ5JTIwY2hhcmdpbmclMjBhcHAlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzYzNDEwNjcwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: battery,
     year: "2025",
     month: "Nov 2025",
     tags: ["AI", "UX Research", "Product Strategy"],
