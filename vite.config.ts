@@ -51,11 +51,10 @@ export default defineConfig({
   },
   build: {
     target: 'esnext',
-    outDir: 'docs',
+    outDir: 'dist',
   },
   server: {
     port: 3000,
     open: true,
   },
-  base: '/Portfoliowebsitedesign/',
 });
