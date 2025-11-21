@@ -61,7 +61,7 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-zinc-800 text-center text-sm text-zinc-600">
-          © {new Date().getFullYear()} Portfolio. All rights reserved.
+          © {new Date().getFullYear()} Frisk Wu. All rights reserved.
         </div>
       </div>
     </footer>
